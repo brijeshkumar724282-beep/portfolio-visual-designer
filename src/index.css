@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f4f1ea;
+  --color-cream: #fbfaf6;
+  --color-sand: #e7e1d3;
+  --color-ink: #141310;
+  --color-smoke: #55534c;
+  --color-accent: #ff4d00;
+  --color-moss: #1e9e5a;
+  --color-royal: #2323ff;
+  --color-sun: #ffc700;
+
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-body: "Inter", "Helvetica Neue", sans-serif;
+  --font-grotesk: "Space Grotesk", "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-cream);
+}
+
+/* Marquee strip */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-x 22s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee-x 36s linear infinite;
+}
+
+/* Availability dot ping (solid colors only) */
+@keyframes dot-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  80%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.animate-dot-ping {
+  animation: dot-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Outlined display text */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-ink);
+}
+
+@media (max-width: 640px) {
+  .text-outline {
+    -webkit-text-stroke: 1.3px var(--color-ink);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink);
+  border-radius: 0;
+}
